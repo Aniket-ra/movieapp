@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // let ele = document.createElement('h1')
+      // ele.innerText = 'Hello'
+
+      // let root = document.getElementById('root')
+
+      // root.appendChild(ele)
+
+      //React
+
+      // let ele = React.createElement('h1' , {
+      //        children : 'Hello'
+      // })
+
+      // ReactDOM.render(ele , document.getElementById('root'))
+
+    //   function Child1() {
+    //     return (
+    //       <div>
+    //         <h1> Hello My name is Mrinal </h1>
+    //       </div>
+    //     );
+    //   }
+
+    //   function Child2() {
+    //     return (
+    //       <div>
+    //         <h1> Hello My name is Aman </h1>
+    //       </div>
+    //     );
+    //   }
+    //   function Child3() {
+    //     return (
+    //       <div>
+    //         <h1> Hello My name is Any</h1>
+    //       </div>
+    //     );
+    //   }
+      
+
+    //   function Parent() {
+    //     return (
+    //       <>
+    //         <Child1 />
+    //         <Child2 />
+    //         <Child3 />
+    //       </>
+    //     );
+    //   }
+    function Child1( {name,age,marks}) {
+        return (
+          <div>
+            <h1> Hello My name is {name} </h1>
+            <h2> My age is {age} </h2>
+            <h2> marks obtained:{marks} </h2>
+          </div>
+        );
+      }
+
+      function Child2() {
+        return (
+          <div>
+            <h1> Hello My name is Aman </h1>
+          </div>
+        );
+      }
+      function Child3() {
+        return (
+          <div>
+            <h1> Hello My name is Any</h1>
+          </div>
+        );
+      }
+      
+
+      function Parent() {
+        return (
+          <>
+            <Child1 name="Any" age="19" marks="96" />
+            <Child1 name="nedr" age="59" marks="56"/>
+        
+          </>
+        );
+      }
+
+      ReactDOM.render(<Parent />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
+   

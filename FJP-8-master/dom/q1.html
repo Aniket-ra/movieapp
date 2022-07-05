@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button> Say Hello
+    </button>
+
+
+
+
+    <script>
+        //q1 on clicking the button append hello to the page
+        // this method is used to identify and select the element
+        let btn=document.querySelector("button")
+
+
+        btn.addEventListener('click', function(){
+            let div=document.createElement('div')
+            //createElement lets you create a new element in the DOM
+            div.innerText='Hello'
+            //inner text is a property by which you can access/add/remove text inside an element
+
+
+            let bodyElem=document.querySelector('body')
+            bodyElem.appendChild(div)
+        })
+
+    </script>
+</body>
+</html>
