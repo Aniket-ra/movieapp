@@ -95,8 +95,8 @@ export class MovieList extends Component {
 
               <h5 class="card-title movie-title">{movieElem.original_title}</h5>
 
-              {this.state.hover == movieElem.id && (
-                <a href="#" class="btn btn-primary movies-button">
+              {this.state.hover === movieElem.id && (
+                <a href="re#" class="btn btn-primary movies-button">
                   Add to Favourites
                 </a>
               )}
@@ -113,11 +113,11 @@ export class MovieList extends Component {
 
               {this.state.parr.map((value)=>(
                <li class="page-item">
-               <a class="page-link">{value}</a>
+               <a class="page-link" href="de">{value}</a>
              </li>
               ))}
               <li class="page-item">
-                <a class="page-link" href="#" onClick={this.handleNext}>
+                <a class="page-link" href="hy#" onClick={this.handleNext}>
                   Next
                 </a>
               </li>
