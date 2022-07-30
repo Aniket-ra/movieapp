@@ -66,6 +66,14 @@ position: absolute;
 bottom: 2rem;
 left : 5rem
 }
+.genre-selector{
+  padding: 3rem;
+}
+
+
+.favourites-table{
+  padding: 3rem;
+}
 
 
 

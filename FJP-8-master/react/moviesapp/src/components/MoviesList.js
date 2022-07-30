@@ -16,7 +16,8 @@ export class MovieList extends Component {
       hover: "",
       movies: [],
       parr : [1],
-      currPage : 1
+      currPage : 1,
+      favourites : []
     };
   }
 
@@ -67,6 +68,52 @@ export class MovieList extends Component {
       currPage : this.state.currPage-1
 } , this.changePage)
     }
+    handlePageClick = (value) => {
+      if (value != this.state.currPage) {
+        this.setState(
+          {
+            currPage: value,
+          },
+          this.changePage
+        );
+      }
+    };
+  
+  
+    handleFavourites =(movieObj)=>{
+            let data = JSON.parse(localStorage.getItem('movies-test') || '[]')
+  
+            if(this.state.favourites.includes(movieObj.id)){
+              data = data.filter((movie)=>movie.id != movieObj.id)
+            }
+  
+            else{
+              data.push(movieObj)
+            }
+  
+            localStorage.setItem('movies-test' , JSON.stringify(data))
+  
+            console.log(data)
+  
+  
+  
+            this.handleFavoritesState()
+  
+  
+    }
+  
+  
+    handleFavoritesState =()=>{
+      let data = JSON.parse(localStorage.getItem('movies-test') || '[]')
+  
+      let temp = data.map((movie)=> movie.id)
+  
+      this.setState({
+        favourites : [...temp]
+      })
+  
+    }
+  
 
   render() {
 
@@ -95,9 +142,10 @@ export class MovieList extends Component {
 
               <h5 class="card-title movie-title">{movieElem.original_title}</h5>
 
-              {this.state.hover === movieElem.id && (
-                <a href="re#" class="btn btn-primary movies-button">
-                  Add to Favourites
+              {this.state.hover == movieElem.id && (
+                <a  class="btn btn-primary movies-button" onClick={()=>this.handleFavourites(movieElem)}>
+                  
+                  {this.state.favourites.includes(movieElem.id)? 'Remove' : 'Add To favourites'}
                 </a>
               )}
             </div>
@@ -111,13 +159,19 @@ export class MovieList extends Component {
                 <a class="page-link" href="sf" onClick={this.handlePrevious}>Previous</a>
               </li>
 
-              {this.state.parr.map((value)=>(
-               <li class="page-item">
-               <a class="page-link" href="de">{value}</a>
-             </li>
+              {this.state.parr.map((value) => (
+                <li class="page-item">
+                  <a
+                    class="page-link"
+                    onClick={() => this.handlePageClick(value)}
+                  >
+                    {value}
+                  </a>
+                </li>
               ))}
+
               <li class="page-item">
-                <a class="page-link" href="hy#" onClick={this.handleNext}>
+                <a class="page-link"  onClick={this.handleNext}>
                   Next
                 </a>
               </li>
